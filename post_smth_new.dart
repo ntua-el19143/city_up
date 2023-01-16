@@ -1,3 +1,5 @@
+import 'package:city_up/camera_screen.dart';
+import 'package:city_up/write_something.dart';
 import 'package:flutter/material.dart';
 
 class PostSomethingNew extends StatefulWidget{
@@ -23,9 +25,13 @@ class _PostSomethingNewState extends State<PostSomethingNew>{
    body: Center(child: Column(
     mainAxisAlignment: MainAxisAlignment.center,
     children: <Widget>[
-      TextButton(onPressed: () {}, style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.grey)), child: const Text('Story', style: TextStyle(color:Colors.black, fontSize: 20.0))),
+      TextButton(onPressed: () =>{Navigator.of(context).push(MaterialPageRoute(
+            builder: (context)=> CameraScreen()))}, 
+      style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.grey)), child: const Text('Story', style: TextStyle(color:Colors.black, fontSize: 20.0))),
       const SizedBox(height: 25),
-      TextButton(onPressed: () {},style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.grey)), child: const Text('Article', style: TextStyle(color:Colors.black, fontSize: 20.0))),
+      TextButton(onPressed: ()=>{Navigator.of(context).push(MaterialPageRoute(
+            builder: (context)=> WriteSomething()))},
+      style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.grey)), child: const Text('Article', style: TextStyle(color:Colors.black, fontSize: 20.0))),
 
     ]
     
