@@ -1,4 +1,5 @@
 import 'package:city_up/lifestyle_options.dart';
+import 'package:city_up/local_authorities.dart';
 import 'package:city_up/post_smth_new.dart';
 import 'package:city_up/news_options.dart';
 import 'package:city_up/city_info_options.dart';
@@ -141,7 +142,9 @@ class _HomePageState extends State<_HomePage>{
       const SizedBox(height:10),
       ElevatedButton(onPressed: () {_openMap(lat, long); }, child: const Text('Open My Location in Google Map')),
       const SizedBox(height:100),
-      Row(mainAxisAlignment: MainAxisAlignment.start, children: [TextButton(onPressed: () {}, child: Text('Local Authorities', style: TextStyle(color:Colors.black)))]),
+      Row(mainAxisAlignment: MainAxisAlignment.start, children: [TextButton(onPressed: () =>{Navigator.of(context).push(MaterialPageRoute(
+            builder: (context)=> LocalAuthorities()))}, 
+      child: Text('Local Authorities', style: TextStyle(color:Colors.black)))]),
       const SizedBox(height:8),
        Row(mainAxisAlignment: MainAxisAlignment.start, children: [TextButton(onPressed: () {}, child: Text('My Posts: $_counter', style: TextStyle(color:Colors.black)))]), 
 
