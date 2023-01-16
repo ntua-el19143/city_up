@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
+import 'package:city_up/post_smth_new.dart';
+import 'package:city_up/profile.dart';
 
-void main() {
-  runApp(const CityInfoArticles());
+
+class CityInfoArticles extends StatefulWidget{
+  const CityInfoArticles({Key? key}) : super(key:key);
+
+
+
+  @override
+  _CityInfoArticlesState createState() => _CityInfoArticlesState();
 }
 
-class CityInfoArticles extends StatelessWidget {
-  const CityInfoArticles({super.key});
-
+class _CityInfoArticlesState extends State<CityInfoArticles> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -15,13 +21,33 @@ class CityInfoArticles extends StatelessWidget {
       title: 'City Info Articles',
       home: Scaffold(
           appBar: AppBar(
-            centerTitle: true,
-            title: const Text('City Info',
-                style: TextStyle(
-                    color: Colors.lightBlue, fontWeight: FontWeight.bold)),
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-          ),
+      centerTitle: true,
+      backgroundColor: Colors.white,
+      foregroundColor: Colors.black,
+      title: const Text('City Info', style: TextStyle(color:Colors.lightBlue, fontStyle: FontStyle.italic, fontWeight: FontWeight.w900, fontSize: 25),
+    ),),
+    bottomNavigationBar: SizedBox(
+        height: 80,
+      child: BottomAppBar(
+         child: Row(
+           children: [
+              IconButton(tooltip: 'Live',icon: Icon(Icons.live_tv, color: Colors.red, size:33.0), onPressed: () {}),
+              Spacer(),
+              IconButton(onPressed: () =>{Navigator.of(context).push(MaterialPageRoute(
+            builder: (context)=> Profile()))} ,
+              tooltip: 'Profile',icon: Icon(Icons.man, size:33.0,)),
+      ],
+    ),
+  ),),
+  floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add, color: Colors.black,),
+          onPressed: () => {Navigator.of(context).push(MaterialPageRoute(
+            builder: (context)=> PostSomethingNew()))
+            },
+          tooltip:  'Post Something New',
+          backgroundColor: Colors.white,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
           body: Center(
             child: RandomWords(),
           )),
