@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:city_up/profile.dart';
 import 'package:city_up/post_smth_new.dart';
+import 'package:city_up/lifestyle_articles.dart';
 
 
 class LifestyleOptions extends StatefulWidget{
@@ -22,6 +23,7 @@ class _LifestyleOptionsState extends State<LifestyleOptions>{
       foregroundColor: Colors.black,
       title: const Text('Lifestyle', style: TextStyle(color:Colors.lightBlue, fontStyle: FontStyle.italic, fontWeight: FontWeight.w900, fontSize: 25),
     ),),
+    
      body: Center(child: Column(
     mainAxisAlignment: MainAxisAlignment.center,
     children: <Widget>[
@@ -39,7 +41,9 @@ class _LifestyleOptionsState extends State<LifestyleOptions>{
             padding: EdgeInsets.all(24),
             ),),),
           const SizedBox(height: 100),
-          SizedBox(height: 50, width: 100, child: TextButton(onPressed: () {},style: ButtonStyle(side: MaterialStateProperty.all(BorderSide(width: 2,color: Colors.blue)) ,backgroundColor: MaterialStateProperty.all(Colors.grey), ),child: const Text('Read', style: TextStyle(color:Colors.blue, fontSize: 20.0))),)
+          SizedBox(height: 50, width: 100, 
+          child: TextButton(onPressed: () =>{Navigator.of(context).push(MaterialPageRoute(
+            builder: (context)=> LifestyleArticles()))},style: ButtonStyle(side: MaterialStateProperty.all(BorderSide(width: 2,color: Colors.blue)) ,backgroundColor: MaterialStateProperty.all(Colors.grey), ),child: const Text('Read', style: TextStyle(color:Colors.blue, fontSize: 20.0))),)
 
     ]
     
