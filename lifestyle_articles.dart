@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
+import 'package:city_up/profile.dart';
+import 'package:city_up/post_smth_new.dart';
 
-void main() {
-  runApp(const MyApp());
+class LifestyleArticles extends StatefulWidget{
+  const LifestyleArticles({Key? key}) : super(key:key);
+
+
+
+  @override
+  _LifestyleArticlesState createState() => _LifestyleArticlesState();
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class _LifestyleArticlesState extends State<LifestyleArticles> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -16,16 +20,45 @@ class MyApp extends StatelessWidget {
       title: 'Lifestyle Articles',
       home: Scaffold(
           appBar: AppBar(
-            centerTitle: true,
-            title: const Text('Lifestyle',
-                style: TextStyle(
-                    color: Colors.lightBlue, fontWeight: FontWeight.bold)),
-            backgroundColor: Colors.transparent,
-            elevation: 0,
+            leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black54,
           ),
+        ),
+      centerTitle: true,
+      backgroundColor: Colors.white,
+      foregroundColor: Colors.black,
+      title: const Text('Lifestyle', style: TextStyle(color:Colors.lightBlue, fontStyle: FontStyle.italic, fontWeight: FontWeight.w900, fontSize: 25),
+    ),),
+    bottomNavigationBar: SizedBox(
+        height: 80,
+      child: BottomAppBar(
+         child: Row(
+           children: [
+              IconButton(tooltip: 'Live',icon: Icon(Icons.live_tv, color: Colors.red, size:33.0), onPressed: () {}),
+              Spacer(),
+              IconButton(onPressed: () =>{Navigator.of(context).push(MaterialPageRoute(
+            builder: (context)=> Profile()))} ,
+              tooltip: 'Profile',icon: Icon(Icons.man, size:33.0,)),
+      ],
+    ),
+  ),),
+  floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add, color: Colors.black,),
+          onPressed: () => {Navigator.of(context).push(MaterialPageRoute(
+            builder: (context)=> PostSomethingNew()))
+            },
+          tooltip:  'Post Something New',
+          backgroundColor: Colors.white,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
           body: Center(
-            child: RandomWords(),
-          )),
+            child: RandomWords()
+      )),
     );
   }
 }
@@ -40,11 +73,9 @@ class RandomWords extends StatefulWidget {
 class RandomWordState extends State<RandomWords> {
   final _suggestion = <String>[];
   int _articleNumber = 1;
-  final _saved = <String>[];
   final _biggerFont = const TextStyle(fontSize: 18);
   @override
   Widget build(BuildContext context) {
-    final String = lorem(paragraphs: 4, words: 200);
     return ListView.builder(
         padding: EdgeInsets.all(16.0),
         itemBuilder: (context, index) {
