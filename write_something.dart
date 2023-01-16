@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(WriteSomethingPage());
+class WriteSomething extends StatefulWidget{
+  const WriteSomething({Key? key}) : super(key:key);
+
+
+
+  @override
+  _WriteSomethingState createState() => _WriteSomethingState();
 }
 
-class WriteSomethingPage extends StatelessWidget {
+class _WriteSomethingState extends State<WriteSomething> {
+
   final _controller = TextEditingController();
 
   @override
