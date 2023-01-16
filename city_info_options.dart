@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:city_up/profile.dart';
 import 'package:city_up/post_smth_new.dart';
-
+import 'package:city_up/city_info_articles.dart';
 
 class CityInfoOptions extends StatefulWidget{
   const CityInfoOptions({Key? key}) : super(key:key);
@@ -39,7 +39,10 @@ class _CityInfoOptionsState extends State<CityInfoOptions>{
             padding: EdgeInsets.all(24),
             ),),),
           const SizedBox(height: 100),
-          SizedBox(height: 50, width: 100, child: TextButton(onPressed: () {},style: ButtonStyle(side: MaterialStateProperty.all(BorderSide(width: 2,color: Colors.blue)) ,backgroundColor: MaterialStateProperty.all(Colors.grey), ),child: const Text('Read', style: TextStyle(color:Colors.blue, fontSize: 20.0))),)
+          SizedBox(height: 50, width: 100, child: TextButton(onPressed: () => {Navigator.of(context).push(MaterialPageRoute(
+            builder: (context)=> CityInfoArticles()))
+            },
+          style: ButtonStyle(side: MaterialStateProperty.all(BorderSide(width: 2,color: Colors.blue)) ,backgroundColor: MaterialStateProperty.all(Colors.grey), ),child: const Text('Read', style: TextStyle(color:Colors.blue, fontSize: 20.0))),)
 
     ]
     
