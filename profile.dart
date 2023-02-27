@@ -10,6 +10,7 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   var sp = main.story_posts;
+  String un = main.username;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +35,7 @@ class _ProfileState extends State<Profile> {
           Row(mainAxisAlignment: MainAxisAlignment.start, children: [
             TextButton(
                 onPressed: () {},
-                child: const Text('user name: ',
+                child: Text('user name: $un',
                     style: TextStyle(
                         color: Colors.black, fontWeight: FontWeight.w900)))
           ]),
